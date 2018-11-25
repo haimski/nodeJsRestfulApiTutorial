@@ -4,7 +4,7 @@ const morgan = require('morgan');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 
-const productRouts = require('./api/routes/products');
+const productRoutes = require('./api/routes/products');
 const orderRoutes = require('./api/routes/orders');
 
 mongoose.connect('mongodb://haimski:'+ process.env.MONGO_ATLAS_PW +'@node-rest-shop-shard-00-00-jln92.mongodb.net:27017,node-rest-shop-shard-00-01-jln92.mongodb.net:27017,node-rest-shop-shard-00-02-jln92.mongodb.net:27017/test?ssl=true&replicaSet=node-rest-shop-shard-0&authSource=admin&retryWrites=true', 
@@ -33,7 +33,7 @@ app.use((req, res, next) => {
 });
 
 // use - middleware to pass data
-app.use('/products', productRouts);
+app.use('/products', productRoutes);
 app.use('/orders', orderRoutes);
 
 app.use((req, res, next) => {

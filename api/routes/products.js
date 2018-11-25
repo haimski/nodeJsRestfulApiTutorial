@@ -11,7 +11,7 @@ router.get('/', (req, res, next) => {
 });
 router.post('/', (req, res, next) => {
     const product = new Product({
-        _id: new mongoose.Schema.Types.objectId(),
+        _id: new mongoose.Types.ObjectId(),
         name: req.body.name,
         price: req.body.price
     });
